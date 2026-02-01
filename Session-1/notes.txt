@@ -1,0 +1,2 @@
+There are mainly 2 ways to use SQL with nodeJS. One is to use mysql2 package and write the same sql queries to handle the data. and another way is to use Sequelize method. In which we use js methods like "findOne()" which avoids writing long sql queries and manual error handling.
+I have used simple mysql2 way here in this assignment but I have practiced the sequelize method also locally.
