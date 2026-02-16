@@ -39,6 +39,24 @@ app.post('/users/:id' , async (req,res)=>{
     const user = await User.findByIdAndUpdate(id , {name , email} , {new:true});
     res.json(user)
 })
+app.get('/users' , (req,res)=>{
+    User.find().then(users => {
+        res.json(users);
+    }).catch(err => {
+        res.status(500).json({ error: 'Failed to fetch users' });
+    });
+
+})
+
+app.post('/users' , (req,res)=>{
+    const { name , email } = req.body;
+    const newUser = new User({ name, email });
+    newUser.save().then(savedUser => {
+        res.status(201).json(savedUser);
+    }).catch(err => {
+        res.status(500).json({ error: 'Failed to create user' });
+    });
+})
 
 mongoose.connect('mongodb://localhost:27017/Practice')
   .then(() => console.log('Connected to MongoDB'))

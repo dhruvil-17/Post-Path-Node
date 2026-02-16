@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FCM Web Test</title>
+</head>
+<body>
+
+<button onclick="getToken()">Get FCM Token</button>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-messaging-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyAncPiVkooaiF1fd7qG416O1EY2zimKaQU",
+  authDomain: "practice-notify.firebaseapp.com",
+  projectId: "practice-notify",
+  storageBucket: "practice-notify.firebasestorage.app",
+  messagingSenderId: "22965726587",
+  appId: "1:22965726587:web:f56ba31ac0911c175661de",
+  measurementId: "G-SVY74PQ0P3"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const messaging = firebase.messaging();
+
+function getToken() {
+  Notification.requestPermission().then(permission => {
+    if (permission === "granted") {
+
+      messaging.getToken({
+        vapidKey: "BEvEGzammvtPAgegSNC335wjo5jI9HSKTnCynMOHjBDlhZLTlWmebdAIOpund7lbCRM5hRwSH-BHcs51M68lVr0"
+      })
+      .then(token => {
+        console.log("🔥 FCM TOKEN:", token);
+      })
+      .catch(err => console.log("Token error:", err));
+
+    }
+  });
+}
+</script>
+
+</body>
+</html>

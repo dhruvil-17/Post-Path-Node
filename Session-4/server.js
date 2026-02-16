@@ -10,9 +10,7 @@ app.use(express.static('public'));
 
 io.on('connection', (socket) => {
     console.log('a user connected');
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
-    });
+
     socket.on('message', (data) => {
         console.log("client says" , data);   
     });
@@ -20,6 +18,7 @@ io.on('connection', (socket) => {
         console.log("client is typing" , data);   
     });
     socket.emit('reply', 'Hello from server');
+
     socket.on('disconnect', () => {
         console.log('user disconnected');
     });

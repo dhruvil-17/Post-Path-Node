@@ -15,6 +15,7 @@
         function send() {
             const msg = document.getElementById('msg').value;
             socket.emit('message', msg);
+            document.getElementById('msg').value = '';
         }
         socket.on('reply', (data) => {
             document.getElementById('reply').innerText = data;
