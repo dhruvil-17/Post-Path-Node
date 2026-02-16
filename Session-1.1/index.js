@@ -1,27 +1,42 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const User = require('./models/schema');
-const bodyParser = require('body-parser');
-const path = require('path');
+const cors = require('cors');
 
+const app = express();  
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-const app= express();
+const corsOptions={
+    origin:'http://localhost:3000',
+    methods : ['GET','POST'],
+    credentials:true,
+    optionSuccessStatus:200,
+}
+app.use(cors(corsOptions));
 
 app.get('/' , (req,res)=>{
 
    res.send("Home Page")
 })
 
-app.get('/users' , (req,res)=>{
-    const users = User.find();
+app.get('/users' , async (req,res)=>{
+    const users = await User.find();
     res.json(users);
 
 })
 
-app.post('/users' , (req,res)=>{
+app.post('/users' , async (req,res)=>{
     const {name , email} = req.body;
     const user = new User({ name , email});
-    user.save();
+    await user.save();
+    res.json(user)
+})
+
+app.post('/users/:id' , async (req,res)=>{
+    const {id} = req.params;
+    const {name , email} = req.body;
+    const user = await User.findByIdAndUpdate(id , {name , email} , {new:true});
     res.json(user)
 })
 
