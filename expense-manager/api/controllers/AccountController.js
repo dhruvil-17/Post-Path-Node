@@ -37,7 +37,7 @@ module.exports = {
 
     return res.view('pages/editAcc', { account });
   },
-  
+
   update : async function (req, res) {
     const { name, balance } = req.body;
 
