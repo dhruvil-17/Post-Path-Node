@@ -22,6 +22,10 @@ module.exports = {
     password:{
       type : 'string',
       required: true
+    },
+    accounts: {
+      collection: 'account',
+      via: 'owner'
     }
 
   },
