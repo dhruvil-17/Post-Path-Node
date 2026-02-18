@@ -1,16 +1,18 @@
 
+
 module.exports.routes = {
 
 
   '/': { view: 'pages/homepage' },
   //signup
- 'GET /signup': { view: 'pages/signup' },
+  'GET /signup': { view: 'pages/signup' },
   'POST /signup': 'AuthController.signup',
   //login
   'GET /login': { view: 'pages/login' },
   'POST /login': 'AuthController.login',
   //auth dashboard
-  'GET /dashboard': { view: 'pages/dashboard'  },
+  'GET /dashboard': 'DashboardController.index',
+
   //logout
   'GET /logout': 'AuthController.logout',
   //account CRUD
@@ -23,8 +25,16 @@ module.exports.routes = {
 
   // add users
   // config/routes.js
-  'GET /friends': {view : 'pages/addFriend'}, 
+  'GET /friends': 'FriendController.show',
   'POST /friends/add': 'FriendController.add',
+
+  //Transaction CRUD
+  'GET /transactions': 'TransactionController.list',
+  'POST /transactions/create': 'TransactionController.create',
+  'GET /transactions/:id/edit': 'TransactionController.edit',
+  'POST /transactions/:id/update': 'TransactionController.update',
+  'POST /transactions/:id/delete': 'TransactionController.delete',
+
 
 
 

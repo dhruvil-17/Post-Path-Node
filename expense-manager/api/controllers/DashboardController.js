@@ -6,14 +6,14 @@
  */
 
 module.exports = {
-   index: async function (req, res) {
-   
+  index: async function (req, res) {
+
     const friends = await Friend.find({ owner: req.session.userId })
-  .populate('friend');
+    .populate('friend');
 
-return res.view('pages/dashboard', { friends });
+    return res.view('pages/dashboard', { friends });
 
-  
+
   }
 
 };

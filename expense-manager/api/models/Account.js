@@ -14,7 +14,7 @@ module.exports = {
 
     balance: { type: 'number' , defaultsTo: 0 },
 
-    owner: { 
+    owner: {
       model: 'user',
       required: true,
     },
