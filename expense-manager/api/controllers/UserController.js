@@ -6,8 +6,6 @@
  */
 
 module.exports = { 
-  greet : function(req, res) {
-    return res.send({message: "Hello from UserController!"});
-  }
+ 
 };
 

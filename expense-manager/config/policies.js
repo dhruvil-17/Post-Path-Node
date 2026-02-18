@@ -10,15 +10,29 @@
 
 module.exports.policies = {
 
+  
+
   // protect dashboard
   DashboardController: {
-    '*': 'isAuthenticated',
+
+    '*' : 'isAuthenticated',
+  
 
   },
 
   // allow auth routes
   AuthController: {
-    logout: 'isLoggedIn',
+  
+    signup: true,
+    login: true,
+    logout: 'isAuthenticated'
+  },
+
+  AccountController: {
+
+    '*' : 'isAuthenticated',
+
   }
+  
 
 };
