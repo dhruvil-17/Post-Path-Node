@@ -10,7 +10,7 @@ module.exports.routes = {
   'GET /login': { view: 'pages/login' },
   'POST /login': 'AuthController.login',
   //auth dashboard
-  'GET /dashboard': { view: 'pages/dashboard' , policy: 'isLoggedIn' },
+  'GET /dashboard': { view: 'pages/dashboard'  },
   //logout
   'GET /logout': 'AuthController.logout',
   //account CRUD
@@ -20,6 +20,12 @@ module.exports.routes = {
   'GET /accounts/edit/:id': 'AccountController.edit',
   'POST /accounts/update/:id': 'AccountController.update',
   'POST /accounts/delete/:id': 'AccountController.delete',
+
+  // add users
+  // config/routes.js
+  'GET /friends': {view : 'pages/addFriend'}, 
+  'POST /friends/add': 'FriendController.add',
+
 
 
 
