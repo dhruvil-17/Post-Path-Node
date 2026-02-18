@@ -9,7 +9,7 @@ module.exports = {
 
   attributes: {
 
-    name:{
+    username:{
       type : 'string',
       required: true
     },
