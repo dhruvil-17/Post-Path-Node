@@ -20,9 +20,12 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
-  '/about': { view: 'pages/about' },
-  '/contact': { view: 'pages/contact' },
-  'GET /greet' : 'UserController.greet'
+ 'GET /signup': { view: 'pages/signup' },
+  'POST /signup': 'AuthController.signup',
+  'GET /login': { view: 'pages/login' },
+  'POST /login': 'AuthController.login',
+ 'GET /dashboard': { view: 'pages/dashboard' , policy: 'isLoggedIn' },
+  'GET /logout': 'AuthController.logout',
 
 
 

@@ -10,13 +10,15 @@
 
 module.exports.policies = {
 
-  /***************************************************************************
-  *                                                                          *
-  * Default policy for all controllers and actions, unless overridden.       *
-  * (`true` allows public access)                                            *
-  *                                                                          *
-  ***************************************************************************/
+  // protect dashboard
+  DashboardController: {
+    '*': 'isAuthenticated',
 
-  // '*': true,
+  },
+
+  // allow auth routes
+  AuthController: {
+    logout: 'isLoggedIn',
+  }
 
 };
