@@ -14,10 +14,13 @@ module.exports = {
 
     balance: { type: 'number' , defaultsTo: 0 },
 
+    isDefault: { type: 'boolean', defaultsTo: false },
+
     owner: {
       model: 'user',
       required: true,
     },
+
   }
 };
 
