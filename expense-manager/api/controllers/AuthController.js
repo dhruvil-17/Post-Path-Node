@@ -35,6 +35,9 @@ module.exports = {
         email,
         password: hashedPassword
       }).fetch();
+      
+     //mail settings 
+      await EmailService.sendEmail(user.email, user.username);
 
       try {
         await Account.create({
