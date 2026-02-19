@@ -51,10 +51,17 @@
                     >
                       Delete
                     </button>
+                    
                   </form>
+                 
                 </div>
-
+                    
               </li>
+              <% if (typeof error !== 'undefined') { %>
+                     <div class="alert alert-danger">
+                        <%= error %>
+                      </div>
+                     <% } %>
             <% }) %>
 
           </ul>

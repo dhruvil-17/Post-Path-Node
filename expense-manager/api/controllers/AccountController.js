@@ -19,7 +19,8 @@ module.exports = {
     await Account.create({
       name,
       balance,
-      owner: req.session.userId
+      owner: req.session.userId,
+    
     });
 
     return res.redirect('/accounts');
@@ -52,12 +53,42 @@ module.exports = {
     return res.redirect('/accounts');
   },
 
-  delete : async function (req,res) {
+ delete: async function (req, res) {
+
+  try {
+
+    const account = await Account.findOne({
+      id: req.params.id,
+      owner: req.session.userId
+    });
+
+    if (!account) {
+      return res.redirect('/accounts');
+    }
+
+    if (account.isDefault) {
+      
+      const accounts = await Account.find({
+        owner: req.session.userId
+      });
+
+      return res.view('pages/accounts', {
+        error: 'Default account cannot be deleted',
+        accounts: accounts
+      });
+    }
+
     await Account.destroyOne({
       id: req.params.id,
       owner: req.session.userId
     });
 
     return res.redirect('/accounts');
+
+  } catch (err) {
+    return res.redirect('/accounts');
   }
+
+}
+
 };

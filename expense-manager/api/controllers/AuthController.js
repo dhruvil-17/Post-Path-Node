@@ -37,13 +37,14 @@ module.exports = {
       }).fetch();
       
      //mail settings 
-      await EmailService.sendEmail(user.email, user.username);
+      EmailService.sendEmail(user.email, user.username);
 
       try {
         await Account.create({
           name: 'Savings',
           balance: 0,
-          owner: user.id
+          owner: user.id,
+          isDefault: true
         });
 
       } catch (error) {
