@@ -19,6 +19,10 @@ module.exports.custom = {
   // stripeSecret: 'sk_test_Zzd814nldl91104qor5911gjald',
   // …
   jwtSecret: 'dhruvil-expense-manager-secret-key',
+  email: {
+    user: 'dhruvildodia123@gmail.com',
+    pass: 'wvin jdxt qccz bmeb'
+  }
 
 
 };

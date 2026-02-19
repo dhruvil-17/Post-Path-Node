@@ -3,7 +3,7 @@
 module.exports.routes = {
 
 
-  '/': { view: 'pages/homepage' },
+  '/': { view: 'pages/signup' },
   //signup
   'GET /signup': { view: 'pages/signup' },
   'POST /signup': 'AuthController.signup',
