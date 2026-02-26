@@ -1,13 +1,9 @@
-/**
- * DashboardController
- *
- * @description :: Server-side actions for handling incoming requests.
- * @help        :: See https://sailsjs.com/docs/concepts/actions
- */
-
+const { v4: uuidv4 } = require("uuid");
 module.exports = {
-  index: async function (req, res) {
 
+  //to view dashboard and pass friends list
+  index: async function (req, res) {
+   
     const friends = await Friend.find({ owner: req.session.userId })
     .populate('friend');
 

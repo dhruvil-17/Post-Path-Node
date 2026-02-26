@@ -12,7 +12,7 @@ const client = createClient(); // Connects to localhost:6379
 })();
 
 app.get('/hello', async (req, res) => {
-    const cacheKey = 'simple_message';
+    const cacheKey = 'simple-key';
 
     //Cache Hit
     const cachedValue = await client.get(cacheKey);
@@ -25,7 +25,7 @@ app.get('/hello', async (req, res) => {
     const staticMsg = "Hello, I am cached!";
 
     // Set the value in Redis with an expiration time of 10 seconds
-    await client.setEx(cacheKey, 10, staticMsg);
+    await client.setEx(cacheKey, 100 , staticMsg);
 
     res.send(`FROM SOURCE: ${staticMsg}`);
 });

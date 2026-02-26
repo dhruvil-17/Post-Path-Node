@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "ejs": "^4.0.1",
-    "sails-mongo": "^2.1.2"
-  }
-}

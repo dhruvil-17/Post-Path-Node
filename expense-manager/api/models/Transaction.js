@@ -1,9 +1,22 @@
 module.exports = {
   attributes: {
 
-    receiver: {
+    type: {
       type: 'string',
+      isIn: ['income','expense','transfer'],
       required: true
+    },
+
+    account: {
+      model: 'account'
+    },
+
+    fromAccount: {
+      model: 'account'
+    },
+
+    toAccount: {
+      model: 'account'
     },
 
     amount: {
@@ -11,14 +24,26 @@ module.exports = {
       required: true
     },
 
+    category: {
+      type: 'string',
+      allowNull: true
+    },
+
     owner: {
       model: 'user',
       required: true
     },
 
-    createdAt: {
-      type: 'number',
-      autoCreatedAt: true
+    transactionDate: {
+      type: 'ref',
+      columnType: 'datetime',
+      required: true
+    },
+
+    deletedAt: {
+      type: 'string',
+      columnType: 'datetime',
+      allowNull: true
     }
 
   }

@@ -15,11 +15,12 @@
     "jsonwebtoken": "^9.0.3",
     "method-override": "^3.0.0",
     "nodemailer": "^8.0.1",
-    "sails": "^1.5.16",
+    "sails": "^1.5.17",
     "sails-hook-grunt": "^5.0.0",
     "sails-hook-orm": "^4.0.3",
     "sails-hook-sockets": "^3.0.0",
-    "sails-mongo": "^2.1.2"
+    "sails-mongo": "^2.1.2",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.24",

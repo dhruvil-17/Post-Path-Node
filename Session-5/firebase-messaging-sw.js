@@ -1,4 +1,4 @@
- importScripts("https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js");
+importScripts("https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js");
 importScripts("https://www.gstatic.com/firebasejs/9.23.0/firebase-messaging-compat.js");
 
 firebase.initializeApp({
@@ -11,4 +11,4 @@ firebase.initializeApp({
   measurementId: "G-SVY74PQ0P3"
 });
 
-const messaging = firebase.messaging();
+export const messaging = firebase.messaging();

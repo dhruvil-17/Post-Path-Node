@@ -24,7 +24,6 @@ module.exports.routes = {
   'POST /accounts/delete/:id': 'AccountController.delete',
 
   // add users
-  // config/routes.js
   'GET /friends': 'FriendController.show',
   'POST /friends/add': 'FriendController.add',
 

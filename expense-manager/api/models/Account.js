@@ -6,21 +6,23 @@
  */
 
 module.exports = {
-
   attributes: {
+    name: { type: "string", required: true },
+    
+    accountNumber: { type: "string", unique: true , required : true},
 
+    balance: { type: "number", defaultsTo: 0 },
 
-    name: { type: 'string' , required: true },
-
-    balance: { type: 'number' , defaultsTo: 0 },
-
-    isDefault: { type: 'boolean', defaultsTo: false },
+    isDefault: { type: "boolean", defaultsTo: false },
 
     owner: {
-      model: 'user',
+      model: "user",
       required: true,
     },
-
-  }
+    deletedAt: {
+      type: "string",
+      columnType: "datetime",
+      allowNull: true,
+    },
+  },
 };
-

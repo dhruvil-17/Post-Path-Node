@@ -7,19 +7,28 @@
 </head>
 <body>
     <input type="text" id="msg">
+    
     <button onclick="send()">Send</button>
+    <button onclick="disconnect()">Diconnect</button>
+    <button onclick="connect()">connect</button>
     <p id="reply"></p>
     <script src="/socket.io/socket.io.js"></script>
     <script>
         const socket = io();
         function send() {
             const msg = document.getElementById('msg').value;
-            socket.emit('message', msg);
+            socket.on('message', msg);
             document.getElementById('msg').value = '';
         }
         socket.on('reply', (data) => {
             document.getElementById('reply').innerText = data;
         });
+        function disconnect(){
+            socket.disconnect()
+        }
+        function connect(){
+            socket.connect()
+        }
     </script>
 </body>
 </html>

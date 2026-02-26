@@ -29,7 +29,7 @@ const addCourse = async (req, res) => {
   }
 };
 
-// Show edit form
+//edit form
 const showEditForm = async (req, res) => {
   try {
     const [courses] = await db.execute('SELECT * FROM courses WHERE id = ?', [req.params.id]);
